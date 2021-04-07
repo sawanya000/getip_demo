@@ -7,7 +7,9 @@ app.use(requestIp.mw());
 
 app.use("/ip", function (req, res) {
   const ip = req.clientIp;
-  res.end(ip);
+  const port = req.clientPort;
+//   res.send(ip+' '+req.connection.remotePort);
+    res.send(req.connection.remoteAddress+' '+req.connection.remotePort+' '+req.connection.localAddress+' '+req.connection.localPort);
 });
 
 app.get("/", (req, res) => {
