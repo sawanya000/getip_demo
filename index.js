@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const PORT = process.env.PORT || 8080;
 const requestIp = require("request-ip");
+var net = require('net');
 
 // app.use(requestIp.mw());
 app.use(requestIp.mw({ attributeName: "myCustomAttributeName" }));
